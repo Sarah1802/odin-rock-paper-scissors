@@ -1,3 +1,7 @@
+let humanScore = 0;
+let computerScore = 0;
+
+
 function getComputerChoice() {
     let randomNum = Math.floor((Math.random() * 10));
 
@@ -8,6 +12,12 @@ function getComputerChoice() {
     } else {
         return "paper";
     }
+}
+
+function cleanString(str) {
+    str = str.replaceAll(" ", "");
+    str = str.toLowerCase();
+    return str;
 }
 
 function getHumanChoice() {
@@ -23,8 +33,46 @@ function getHumanChoice() {
     return clean_choice;
 }
 
-function cleanString(str) {
-    str = str.replaceAll(" ", "");
-    str = str.toLowerCase();
-    return str;
+function playRound(humanChoice, computerChoice) {
+
+    if (humanChoice == computerChoice) {
+        console.log(`Tie`);
+        return;
+    }
+
+    switch (humanChoice) {
+
+        case "scissors" :
+            if (computerChoice == "rock") {
+                computerScore++;
+                console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            } else {
+                humanScore++;
+                console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            }
+            return;
+        case "rock" :
+            if (computerChoice == "paper") {
+                computerScore++;
+                console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            } else {
+                humanScore++;
+                console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            }
+            return;
+        case "paper" :
+            if (computerChoice == "scissors") {
+                computerScore++;
+                console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            } else {
+                humanScore++;
+                console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+            }
+            return;
+    }
+
 }
+
+
+
+
