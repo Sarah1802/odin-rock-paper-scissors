@@ -77,17 +77,21 @@ function playGame() {
         let c = getComputerChoice();
         let h = getHumanChoice();
 
+        console.log(`Round: ${(i+1)} \n`);
         playRound(h, c);
     }
 
     if (humanScore > computerScore) {
-        console.log("You win!");
+        console.log("\n You win! \n\n");
     } else if (humanScore == computerScore) {
-        console.log("Tied!");
+        console.log("\n Tied! \n\n");
     } else {
-        console.log("You lose!");
+        console.log("\n You lose! \n\n");
     }
-    
+
+    console.log(`Your Score: ${humanScore} \n`);
+    console.log(`Computer Score: ${computerScore}`);
+
     return;
 }
 
