@@ -25,7 +25,7 @@ function getHumanChoice() {
 
     let clean_choice = cleanString(choice);
 
-    while (clean_choice != "scissors" && clean_choice != "rock" && clean_choice != "rock") {
+    while (clean_choice != "scissors" && clean_choice != "rock" && clean_choice != "paper") {
         choice = prompt("Invalid Choice");
         clean_choice = cleanString(choice);
     }
@@ -70,7 +70,25 @@ function playRound(humanChoice, computerChoice) {
             }
             return;
     }
+}
 
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        let c = getComputerChoice();
+        let h = getHumanChoice();
+
+        playRound(h, c);
+    }
+
+    if (humanScore > computerScore) {
+        console.log("You win!");
+    } else if (humanScore == computerScore) {
+        console.log("Tied!");
+    } else {
+        console.log("You lose!");
+    }
+    
+    return;
 }
 
 
